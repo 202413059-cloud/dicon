@@ -1,40 +1,86 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>내 취향 지도</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+body {
+  margin: 0;
+  padding: 0;
+  background: #e8ecf0;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #222;
+}
 
-  <div class="container">
+.container {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  padding-top: 40px;
+}
 
-    <h1 class="title">내 취향 지도</h1>
+.title {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #1b1f23;
+}
 
-    <!-- 중앙 메인 이미지 -->
-    <div class="main-image">
-      <!-- 너가 원하는 “취향 지도” 이미지를 넣어라 -->
-      <img src="main.png" alt="취향 지도 이미지" />
-    </div>
+.main-image img {
+  width: 280px;
+  height: auto;
+  margin: 0 auto 20px;
+  display: block;
+}
 
-    <!-- 버튼 5개 -->
-    <div class="button-grid">
-      <button class="category-btn" data-type="fashion">패션</button>
-      <button class="category-btn" data-type="product">제품 디자인</button>
-      <button class="category-btn" data-type="interior">공간/인테리어</button>
-      <button class="category-btn" data-type="art">아트/시각이미지</button>
-      <button class="category-btn" data-type="color">색감</button>
-    </div>
+.button-grid {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
 
-    <!-- 클릭하면 바뀌는 영역 -->
-    <div id="content-area" class="hidden">
-      <p id="desc" class="description"></p>
-      <div id="image-grid" class="image-grid"></div>
-    </div>
+.category-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #f5f7fa;
+  color: #222;
+  transition: 0.2s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
 
-  </div>
+.category-btn:hover {
+  background: #dfe6ee;
+  transform: translateY(-3px);
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+#content-area {
+  margin-top: 40px;
+  animation: fadeIn 0.4s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.description {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  justify-items: center;
+}
+
+.image-grid img {
+  width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
