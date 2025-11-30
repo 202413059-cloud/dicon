@@ -18,20 +18,40 @@ const folderNames = {
   color: "color"
 };
 
+// png/jpg/jpeg 확장자를 자동 탐색하는 헬퍼 함수
+async function findValidImagePath(basePath) {
+  const extensions = ["png", "jpg", "jpeg"];
+  
+  for (const ext of extensions) {
+    const url = `${basePath}.${ext}`;
+    try {
+      const res = await fetch(url, { method: "HEAD" });
+      if (res.ok) return url; // 실제 존재하면 그 경로 사용
+    } catch (e) {
+      continue;
+    }
+  }
+  return null;
+}
+
 document.querySelectorAll(".category-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
+  btn.addEventListener("click", async () => {
     const type = btn.dataset.type;
 
-    // 설명문구 반영
+    // 설명문구 표시
     desc.textContent = descriptions[type];
 
-    // 이미지 9개 로드
+    // 이미지 로드
     grid.innerHTML = "";
     for (let i = 1; i <= 9; i++) {
-      const img = document.createElement("img");
-      img.src = `assets/${folderNames[type]}/img${i}.jpg`;
-      img.alt = `${type} 이미지 ${i}`;
-      grid.appendChild(img);
+      const base = `assets/${folderNames[type]}/img${i}`;
+      const validPath = await findValidImagePath(base);
+
+      if (validPath) {
+        const img = document.createElement("img");
+        img.src = validPath;
+        grid.appendChild(img);
+      }
     }
 
     contentArea.classList.remove("hidden");
