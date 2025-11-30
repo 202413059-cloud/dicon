@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>내 취향 지도</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <h1 class="title">내 취향 지도</h1>
+
+    <!-- 중앙 메인 이미지 -->
+    <div class="main-image">
+      <!-- 너가 원하는 “취향 지도” 이미지를 넣어라 -->
+      <img src="assets/map.png" alt="취향 지도 이미지" />
+    </div>
+
+    <!-- 버튼 5개 -->
+    <div class="button-grid">
+      <button class="category-btn" data-type="fashion">패션</button>
+      <button class="category-btn" data-type="product">제품 디자인</button>
+      <button class="category-btn" data-type="interior">공간/인테리어</button>
+      <button class="category-btn" data-type="art">아트/시각이미지</button>
+      <button class="category-btn" data-type="color">색감</button>
+    </div>
+
+    <!-- 클릭하면 바뀌는 영역 -->
+    <div id="content-area" class="hidden">
+      <p id="desc" class="description"></p>
+      <div id="image-grid" class="image-grid"></div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
