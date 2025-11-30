@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>내 취향 지도</title>
-  <!-- CSS 캐시 강제 리프레시 -->
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -15,6 +14,7 @@
 
     <!-- 중앙 메인 이미지 -->
     <div class="main-image">
+      <!-- 너가 원하는 “취향 지도” 이미지를 넣어라 -->
       <img src="main.png" alt="취향 지도 이미지" />
     </div>
 
