@@ -21,12 +21,11 @@ const folderNames = {
 // png/jpg/jpeg 확장자를 자동 탐색하는 헬퍼 함수
 async function findValidImagePath(basePath) {
   const extensions = ["png", "jpg", "jpeg"];
-  
   for (const ext of extensions) {
     const url = `${basePath}.${ext}`;
     try {
       const res = await fetch(url, { method: "HEAD" });
-      if (res.ok) return url; // 실제 존재하면 그 경로 사용
+      if (res.ok) return url;
     } catch (e) {
       continue;
     }
@@ -34,15 +33,14 @@ async function findValidImagePath(basePath) {
   return null;
 }
 
+// 카테고리 버튼 클릭 이벤트
 document.querySelectorAll(".category-btn").forEach((btn) => {
   btn.addEventListener("click", async () => {
     const type = btn.dataset.type;
 
-    // 설명문구 표시
     desc.textContent = descriptions[type];
-
-    // 이미지 로드
     grid.innerHTML = "";
+
     for (let i = 1; i <= 9; i++) {
       const base = `assets/${folderNames[type]}/img${i}`;
       const validPath = await findValidImagePath(base);
@@ -54,7 +52,13 @@ document.querySelectorAll(".category-btn").forEach((btn) => {
       }
     }
 
-  // 1. 이미지 다운로드 기능
+    contentArea.classList.remove("hidden");
+    contentArea.scrollIntoView({ behavior: "smooth" });
+  });
+});
+
+
+// ✅ 바깥에 있어야 작동하는 함수들
 function downloadImage() {
   const image = document.getElementById("main-image");
   const link = document.createElement("a");
@@ -65,22 +69,13 @@ function downloadImage() {
   document.body.removeChild(link);
 }
 
-// 2. 다크모드 토글 기능
 function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
 }
 
-// 3. 좋아요 기능
 let likeCount = 0;
-
 function likeImage() {
   likeCount++;
   const likeSpan = document.getElementById("like-count");
   likeSpan.textContent = likeCount;
 }
-
-
-    contentArea.classList.remove("hidden");
-    contentArea.scrollIntoView({ behavior: "smooth" });
-  });
-});
