@@ -14,8 +14,7 @@
 
     <!-- 중앙 메인 이미지 -->
     <div class="main-image">
-      <!-- 너가 원하는 “취향 지도” 이미지를 넣어라 -->
-      <img src="main.png" alt="취향 지도 이미지" />
+      <img id="main-image" src="main.png" alt="취향 지도 이미지" />
     </div>
 
     <!-- 버튼 5개 -->
@@ -25,6 +24,14 @@
       <button class="category-btn" data-type="interior">공간/인테리어</button>
       <button class="category-btn" data-type="art">아트/시각이미지</button>
       <button class="category-btn" data-type="color">색감</button>
+    </div>
+
+    <!-- 추가된 기능 버튼들 -->
+    <div class="feature-buttons">
+      <button onclick="downloadImage()">📥 이미지 다운로드</button>
+      <button onclick="toggleDarkMode()">🌙 다크모드</button>
+      <button onclick="likeImage()">❤️ 좋아요</button>
+      <span id="like-count">0</span>
     </div>
 
     <!-- 클릭하면 바뀌는 영역 -->
