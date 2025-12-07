@@ -54,6 +54,32 @@ document.querySelectorAll(".category-btn").forEach((btn) => {
       }
     }
 
+  // 1. 이미지 다운로드 기능
+function downloadImage() {
+  const image = document.getElementById("main-image");
+  const link = document.createElement("a");
+  link.href = image.src;
+  link.download = "my-style-image.png";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// 2. 다크모드 토글 기능
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+}
+
+// 3. 좋아요 기능
+let likeCount = 0;
+
+function likeImage() {
+  likeCount++;
+  const likeSpan = document.getElementById("like-count");
+  likeSpan.textContent = likeCount;
+}
+
+
     contentArea.classList.remove("hidden");
     contentArea.scrollIntoView({ behavior: "smooth" });
   });
