@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", () => {
+
 const contentArea = document.getElementById("content-area");
 const desc = document.getElementById("desc");
 const grid = document.getElementById("image-grid");
@@ -79,3 +81,5 @@ function likeImage() {
   const likeSpan = document.getElementById("like-count");
   likeSpan.textContent = likeCount;
 }
+
+  });
