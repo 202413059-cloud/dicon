@@ -1,1 +1,43 @@
+body {
+  font-family: sans-serif;
+  background: #f5f6f7;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.page {
+  padding: 40px 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  padding: 12px 20px;
+  margin: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+#start-btn {
+  font-size: 18px;
+  background: #111;
+  color: white;
+}
+
+.choice-btn.good { background: #4caf50; color: white; }
+.choice-btn.mid  { background: #ccc; }
+.choice-btn.bad  { background: #f44336; color: white; }
+
+.question {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  border-radius: 12px;
+}
 
