@@ -1,1 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>나의 디자인 취향 테스트</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ✅ Landing Page -->
+  <section id="landing" class="page active">
+    <h1>나의 디자인 취향 테스트</h1>
+    <button id="start-btn">나의 디자인 취향 알아보기</button>
+  </section>
+
+  <!-- ✅ Test Page -->
+  <section id="test" class="page hidden">
+    <h2>질문에 답해주세요</h2>
+
+    <div id="questions">
+      <!-- JS로 문항 생성 -->
+    </div>
+
+    <button id="result-btn" disabled>결과 보기</button>
+  </section>
+
+  <!-- ✅ Result Page -->
+  <section id="result" class="page hidden">
+    <h1 id="result-title"></h1>
+    <p id="result-desc"></p>
+
+    <button onclick="location.reload()">다시 테스트하기</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
